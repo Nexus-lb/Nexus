@@ -17,7 +17,7 @@ const BlogPagination: React.FC<BlogPaginationProps> = ({
       <button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className="p-2 rounded-lg text-gray-600 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed"
       >
         <ChevronLeft size={20} />
       </button>
@@ -28,8 +28,8 @@ const BlogPagination: React.FC<BlogPaginationProps> = ({
           onClick={() => onPageChange(page)}
           className={`w-10 h-10 rounded-lg font-medium transition-colors
             ${currentPage === page
-              ? 'bg-blue-600 text-white'
-              : 'text-gray-600 hover:bg-gray-100'}`}
+              ? 'bg-blue-600 dark:bg-blue-500 text-white'
+              : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700'}`}
         >
           {page}
         </button>
@@ -38,7 +38,7 @@ const BlogPagination: React.FC<BlogPaginationProps> = ({
       <button
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className="p-2 rounded-lg text-gray-600 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed"
       >
         <ChevronRight size={20} />
       </button>

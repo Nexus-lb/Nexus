@@ -35,7 +35,7 @@ const Blog = () => {
   );
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="bg-white dark:bg-gray-900 text-black dark:text-white">
       <BlogHero />
       
       <div className="container mx-auto px-4 py-12">
