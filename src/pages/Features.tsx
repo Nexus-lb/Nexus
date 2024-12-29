@@ -1,12 +1,20 @@
 import React from 'react';
+import FeaturesHero from '../components/features/FeaturesHero';
+import CoreFeatures from '../components/features/CoreFeatures';
+import UniqueFeature from '../components/features/UniqueFeature';
+import Accessibility from '../components/features/Accessibility';
+import FutureReady from '../components/features/FutureReady';
+import FeaturesCTA from '../components/features/FeaturesCTA';
 
 const Features = () => {
   return (
-    <div className="pt-16">
-      <div className="container mx-auto px-4 py-12">
-        <h1 className="text-4xl font-bold text-gray-900 mb-8">Features</h1>
-        {/* Add features content */}
-      </div>
+    <div className="min-h-screen bg-white dark:bg-gray-900">
+      <FeaturesHero />
+      <CoreFeatures />
+      <UniqueFeature />
+      <Accessibility />
+      <FutureReady />
+      <FeaturesCTA />
     </div>
   );
 };
