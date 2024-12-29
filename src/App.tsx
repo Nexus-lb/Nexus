@@ -7,6 +7,7 @@ import About from './pages/About';
 import HowItWorks from './pages/HowItWorks';
 import Features from './pages/Features';
 import Blog from './pages/Blog';
+import BlogDetail from './pages/BlogDetail';
 import Contact from './pages/Contact';
 import Documentation from './pages/Documentation';
 import Help from './pages/Help';
@@ -27,6 +28,7 @@ function App() {
             <Route path="how-it-works" element={<HowItWorks />} />
             <Route path="features" element={<Features />} />
             <Route path="blog" element={<Blog />} />
+            <Route path="/blog/:id" element={<BlogDetail />} />
             <Route path="contact" element={<Contact />} />
             <Route path="documentation" element={<Documentation />} />
             <Route path="help" element={<Help />} />
