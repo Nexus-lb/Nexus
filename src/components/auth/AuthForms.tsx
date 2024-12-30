@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import LoginForm from './LoginForm';
-import SignupForm from './SignupForm';
+import { LoginForm } from './LoginForm';
+import { SignupForm } from './SignupForm';
 
-const AuthForms = () => {
+export const AuthForms = () => {
   const [isLogin, setIsLogin] = useState(true);
 
   return (
@@ -33,5 +33,3 @@ const AuthForms = () => {
     </div>
   );
 };
-
-export default AuthForms;

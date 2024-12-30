@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Lightbulb, Users } from 'lucide-react';
-import AuthForms from '../components/auth/AuthForms';
+import { AuthForms } from '../components/auth/AuthForms';
 
-const Auth = () => {
+export const Auth = () => {
   return (
     <div className="min-h-screen flex bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
       {/* Left Panel */}
@@ -53,5 +53,3 @@ const Auth = () => {
     </div>
   );
 };
-
-export default Auth;

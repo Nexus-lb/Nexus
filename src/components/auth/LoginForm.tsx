@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Lock } from 'lucide-react';
 
-const LoginForm = () => {
+export const LoginForm = () => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -81,5 +81,3 @@ const LoginForm = () => {
     </form>
   );
 };
-
-export default LoginForm;

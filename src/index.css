@@ -5,7 +5,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-  }.
+  }
   
   body {
     @apply text-gray-900 antialiased;
