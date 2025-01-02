@@ -26,11 +26,17 @@ export const StepTwo: React.FC<StepTwoProps> = ({ email, onVerified }) => {
     setLoading(true);
 
     try {
-      await authService.verifyOTP(email, otp);
+      const { error } = await authService.verifyOTP(email, otp);
+      
+      if (error) {
+        toast.error('Invalid verification code. Please try again.');
+        return;
+      }
+
       toast.success('Email verified successfully');
       onVerified();
     } catch (error) {
-      toast.error(error instanceof Error ? error.message : 'Invalid OTP. Please try again.');
+      toast.error('Invalid verification code. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -38,11 +44,11 @@ export const StepTwo: React.FC<StepTwoProps> = ({ email, onVerified }) => {
 
   const handleResendOTP = async () => {
     try {
-      await authService.signUp({ email, password: '', name: '', userType: 'general' });
+      await authService.resendOTP(email);
       setCountdown(30);
-      toast.success('Verification email resent successfully');
+      toast.success('Verification code resent successfully');
     } catch (error) {
-      toast.error('Failed to resend verification email');
+      toast.error('Failed to resend verification code');
     }
   };
 
@@ -77,7 +83,7 @@ export const StepTwo: React.FC<StepTwoProps> = ({ email, onVerified }) => {
         disabled={loading || otp.length !== 6}
         className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors dark:bg-blue-500 dark:hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        {loading ? 'Verifying...' : 'Verify OTP'}
+        {loading ? 'Verifying...' : 'Verify Code'}
       </button>
 
       <div className="text-center">
