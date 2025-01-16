@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { User, Mail } from 'lucide-react';
 import { z } from 'zod';
 import { toast } from 'react-hot-toast';
-import { authService } from '../../../services/auth';
+import { emailService } from '../../../services/emailService';
 
 const stepOneSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -27,19 +27,17 @@ export const StepOne: React.FC<StepOneProps> = ({ formData, onUpdate, onNext }) 
       
       setIsSubmitting(true);
       
-      // Initiate signup process to send OTP
-      await authService.initiateSignup(formData.email);
+      // Send OTP email
+      await emailService.sendOTP(formData.email);
       toast.success('Verification code sent to your email');
       onNext();
-    } catch (error: any) {
+    } catch (error) {
       if (error instanceof z.ZodError) {
         error.errors.forEach((err) => {
           toast.error(err.message);
         });
-      } else if (error?.message?.includes('rate limit')) {
-        toast.error('Too many attempts. Please wait a few minutes before trying again.');
       } else {
-        toast.error('Failed to send verification code. Please try again later.');
+        toast.error('Failed to send verification code. Please try again.');
       }
     } finally {
       setIsSubmitting(false);

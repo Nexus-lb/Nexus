@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { KeyRound } from 'lucide-react';
-import { authService } from '../../../services/auth';
+import { emailService } from '../../../services/emailService';
 import { toast } from 'react-hot-toast';
 
 interface StepTwoProps {
@@ -26,9 +26,9 @@ export const StepTwo: React.FC<StepTwoProps> = ({ email, onVerified }) => {
     setLoading(true);
 
     try {
-      const { error } = await authService.verifyOTP(email, otp);
+      const isValid = emailService.verifyOTP(email, otp);
       
-      if (error) {
+      if (!isValid) {
         toast.error('Invalid verification code. Please try again.');
         return;
       }
@@ -44,7 +44,7 @@ export const StepTwo: React.FC<StepTwoProps> = ({ email, onVerified }) => {
 
   const handleResendOTP = async () => {
     try {
-      await authService.resendOTP(email);
+      await emailService.sendOTP(email);
       setCountdown(30);
       toast.success('Verification code resent successfully');
     } catch (error) {
