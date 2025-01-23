@@ -14,11 +14,13 @@ import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import GetStarted from './pages/GetStarted';
 import { Auth } from './pages/Auth';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <ThemeProvider>
       <BrowserRouter>
+      <ScrollToTop />
         <Routes>
           <Route path="/auth" element={<Auth />} />
           <Route path="/" element={<Layout />}>
