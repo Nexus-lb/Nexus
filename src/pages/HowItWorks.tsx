@@ -62,7 +62,7 @@ export const HowItWorks = () => {
       {/* Steps Section */}
       <div
         ref={stepsRef}
-        className={`py-16 px-4 md:px-8 max-w-7xl mx-auto transition-all duration-1000 ${
+        className={`dark:bg-gray-900 py-16 px-4 md:px-8 max-w-7xl mx-auto transition-all duration-1000 ${
           stepsInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}
       >
@@ -112,7 +112,7 @@ export const HowItWorks = () => {
       </div>
 
       {/* CTA Section */}
-      <div className="py-16 px-4 md:px-8 text-center">
+      <div className="dark:bg-gray-900 py-16 px-4 md:px-8 text-center">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
             Ready to Get Started?
