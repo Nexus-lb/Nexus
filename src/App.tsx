@@ -15,6 +15,7 @@ import Terms from './pages/Terms';
 import GetStarted from './pages/GetStarted';
 import { Auth } from './pages/Auth';
 import ScrollToTop from './components/ScrollToTop';
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
             <Route path="privacy" element={<Privacy />} />
             <Route path="terms" element={<Terms />} />
             <Route path="get-started" element={<GetStarted />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
